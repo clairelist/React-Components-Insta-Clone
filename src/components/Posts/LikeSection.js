@@ -11,10 +11,10 @@ const LikeSection = props => {
   const { likePost, numberOfLikes } = props;
   //state! so w can update num of likes
 
-  const [like,setLikePost] = useState(numberOfLikes);
+  const [numLikes,setNumberOfLikes] = useState(0);
 
   const incLikes = () => { //'increase likes' ie
-    setLikePost(like+1);
+    setNumberOfLikes(numLikes+1);
   }
 
   return (
@@ -24,7 +24,7 @@ const LikeSection = props => {
         key='likes-icons-container'
       >
         <div className='like-section-wrapper'>
-          <FontAwesomeIcon icon={faHeart} />
+          <FontAwesomeIcon icon={faHeart} onClick={incLikes}/>
           
         </div>
         <div className='like-section-wrapper'>
@@ -32,7 +32,7 @@ const LikeSection = props => {
         </div>
       </div>
       <button onClick={incLikes}>Gefaellt Mir noch</button>
-      <p className='like-number'>{numberOfLikes} likes</p>
+      <p className='like-number'>{numLikes} likes</p>
     </div>
   );
 };
